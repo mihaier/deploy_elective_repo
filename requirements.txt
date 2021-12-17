@@ -1,0 +1,12 @@
+flask
+
+gunicorn
+
+dash
+
+pandas
+
+scikit-learn
+
+sklearn
+
