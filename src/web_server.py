@@ -18,4 +18,4 @@ def parse_param_post():
     d = json.loads(request.data)
     return "Вы обратились по посту на {}".format(d.['body'])
 
-app.run()
+#app.run()

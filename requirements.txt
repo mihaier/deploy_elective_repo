@@ -4,9 +4,15 @@ gunicorn
 
 dash
 
+bentoml
+
 pandas
 
 scikit-learn
+
+matplotlib
+
+rq
 
 sklearn
 

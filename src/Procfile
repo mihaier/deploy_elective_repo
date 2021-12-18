@@ -1,4 +1,4 @@
-web: python3 ./src/web_server.py
+web: gunicorn src.web_server:app
 
 
 
