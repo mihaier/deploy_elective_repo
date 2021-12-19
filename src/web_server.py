@@ -6,7 +6,7 @@ import pickle
 
 app = Flask(__name__)
 
-with open('../models/rforestregressor.pkt', 'rb') as file:
+with open('./models/rforestregressor.pkt', 'rb') as file:
     random_forest_regressor = pickle.load(file)
 
 #тут пока только одна модель
