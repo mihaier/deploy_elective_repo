@@ -19,6 +19,10 @@ features_list = ['P1', 'P2', 'P3', 'P4',
        'P26', 'P27', 'P28', 'P29', 'P30', 'P31', 'P32', 'P33', 'P34', 'P35',
        'P36', 'P37']
 
+@app.route("/", methods=['GET'])
+def session_start():
+    return 'session started'
+
 @app.route("/api/show_models", methods=['GET'])
 def show_models():
 
