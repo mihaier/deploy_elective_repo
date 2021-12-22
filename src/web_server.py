@@ -4,13 +4,16 @@ from flask import request
 import json
 import pickle
 from rq import Queue
-from rq.Job import Job
-from task import very_long_task
+from rq.job import Job
+from src.task import very_long_task
+import redis
 from worker import conn
+import os
 
+redis_url = os.getenv('REDISTOGO_URL', 'redis://localhost:6379')
 
 app = Flask(__name__)
-q = Queue
+q = Queue(connection=conn)
 
 with open('./models/rforestregressor.pkt', 'rb') as file:
     random_forest_regressor = pickle.load(file)
@@ -54,7 +57,7 @@ def predict(model=random_forest_regressor,
 @app_route("/do_long_task")
 def do_long_task:
     job = q.enqueue(very_long_task())
-    resul_url = "http:////get_result/{}".format(str(job.key))
+    #resul_url = "http:////get_result/{}".format(str(job.key))
     return job.key
 
 @app_route('/get_result/<job_key>')
@@ -66,6 +69,6 @@ def get_results(job_key):
     else:
         return str(job.result)
 
-app.run()
+##app.run()
 
 

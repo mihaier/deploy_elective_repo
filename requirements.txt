@@ -6,5 +6,4 @@ scikit-learn
 pandas
 matplotlib
 rq
-bentoml
-
+redis
